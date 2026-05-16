@@ -1,0 +1,37 @@
+[package]
+name = "netpulse"
+version = "1.0.0"
+edition = "2021"
+authors = ["NetPulse Team <netpulse@example.com>"]
+description = "🚀 Intelligent Network Monitoring & Device Management Tool"
+license = "MIT"
+repository = "https://github.com/gitstq/NetPulse-Monitor"
+keywords = ["network", "monitoring", "tui", "rust", "cli"]
+categories = ["command-line-utilities", "network-programming"]
+rust-version = "1.75"
+
+[[bin]]
+name = "netpulse"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+ratatui = "0.24"
+crossterm = "0.27"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = "0.4"
+dashmap = "5.5"
+anyhow = "1.0"
+toml = "0.8"
+rand = "0.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"
